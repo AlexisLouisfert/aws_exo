@@ -14,4 +14,4 @@ function showTable() {
     });
 }
 
-showTable();
+module.exports = { showTable };

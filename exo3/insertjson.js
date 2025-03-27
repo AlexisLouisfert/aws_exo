@@ -55,4 +55,4 @@ function readAndInsertFromFile() {
     });
 }
 
-readAndInsertFromFile();
+module.exports = { readAndInsertFromFile };

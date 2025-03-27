@@ -16,5 +16,4 @@ function updateTable(id, updateExpression, expressionValues) {
     });
 }
 
-updateTable(1, "set age = age + :val, classe = :classe", { ":val": 1, ":classe": "5ème" });
-updateTable(3, "set nom = :nom", { ":nom": "Charles" });
+module.exports = { updateTable };

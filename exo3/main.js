@@ -5,6 +5,7 @@ const { showTable } = require('./showtable.js');
 const { createTable } = require('./createtable.js');
 const { checkTableExists} = require('./insert.js');
 
+const action = process.argv[2];
 
 if (action === '1') {
     createTable();
@@ -21,7 +22,7 @@ if (action === '1') {
 } else if (action === '5') {
     showTable();
 } else {
-    console.log('Action invalide. Utilisez "createBucket", "putObject" ou "getnputObject".');
+    console.log('Action invalide. Utilisez "createTable", "insertData", "readAndInsertFromFile", "updateTable" ou "showTable".');
 }
 
 /* nb: actions:

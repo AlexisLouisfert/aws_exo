@@ -48,8 +48,5 @@ function insertData() {
     });
 }
 
-checkTableExists((exists) => {
-    if (exists) insertData();
-    else console.error("La table n'existe pas ou n'est pas active. Impossible d'insérer des données.");
-});
+module.exports = { insertData, checkTableExists };
 

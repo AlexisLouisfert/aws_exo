@@ -21,7 +21,11 @@ var params = {
     }
 };
 
-dynamoDB.createTable(params, function(err, data) {
-    if (err) console.log(err, err.stack);
-    else console.log("Table Created", data.Item);
-});
+function createTable() {
+    dynamoDB.createTable(params, function(err, data) {
+        if (err) console.error("Erreur lors de la création de la table:", err);
+        else console.log("Table créée avec succès:", data);
+    });
+}
+
+module.exports = { createTable };
