@@ -2,7 +2,7 @@ const AWS = require('./aws-config');
 const dynamoDB = new AWS.DynamoDB();
 
 var params = {
-    TableName: "Eleves",
+    TableName: "Etudiants",
     KeySchema: [                 
         {
             AttributeName: 'id',   
@@ -12,7 +12,7 @@ var params = {
     AttributeDefinitions: [      
         {
             AttributeName: 'id',
-            AttributeType: 'N'      
+            AttributeType: 'S'      
         }
     ],
     ProvisionedThroughput: {     

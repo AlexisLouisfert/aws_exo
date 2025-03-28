@@ -1,7 +1,7 @@
 const AWS = require('./aws-config');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
-const tableName = 'Eleves';
+const tableName = 'Etudiants';
 
 function showTable() {
     const params = {

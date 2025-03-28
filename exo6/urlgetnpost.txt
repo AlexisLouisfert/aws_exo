@@ -1,0 +1,4 @@
+get n post:
+https://ipp8brtehd.execute-api.eu-west-3.amazonaws.com/Stage1/
+get spe:
+https://ipp8brtehd.execute-api.eu-west-3.amazonaws.com/Stage1/?id=1

@@ -4,7 +4,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 function updateTable(id, updateExpression, expressionValues) {
     const params = {
         TableName: 'Eleves',
-        Key: { id: id },
+        Key: { id: id.toString() },
         UpdateExpression: updateExpression,
         ExpressionAttributeValues: expressionValues,
         ReturnValues: "UPDATED_NEW"

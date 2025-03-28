@@ -4,13 +4,13 @@ const dynamoDBRaw = new AWS.DynamoDB();
 
 const students = [
     {
-        id: 1,
+        id: '1',
         nom: 'Alice',
         age: 12,
         classe: '6ème'
     },
     {
-        id: 2,
+        id: '2',
         nom: 'Bob',
         age: 13,
         classe: '5ème'
@@ -19,7 +19,7 @@ const students = [
 
 function checkTableExists(callback) {
     const params = {
-        TableName: 'Eleves'
+        TableName: 'Etudiants'
     };
     
     dynamoDBRaw.describeTable(params, (err, data) => {
@@ -37,7 +37,7 @@ function checkTableExists(callback) {
 function insertData() {
     students.forEach((student) => {
         const params = {
-            TableName: 'Eleves',
+            TableName: 'Etudiants',
             Item: student 
         };
 
