@@ -1,10 +1,41 @@
-import AWS from '../../aws-config';
+const AWS = require('aws-sdk');
 
-const dynamoDB = new AWS.DynamoDB.DocumentClient(); 
+AWS.config.update({
+    region: 'eu-west-3'
+});
 
-export function listReservation() {
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
+
+async function listReservation() {
     const params = {
         TableName: 'Reservations'
     };
-    return dynamoDB.scan(params).promise();
+    const result = await dynamoDB.scan(params).promise();
+    return result.Items || [];
 }
+
+exports.handler = async () => {
+    try {
+        const reservations = await listReservation();
+
+        if (reservations.length === 0) {
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ message: "Aucune réservation trouvée" })
+            };
+        }
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify(reservations)
+        };
+    } catch (error) {
+        console.error("Erreur lors de la récupération des réservations :", error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ error: error.message })
+        };
+    }
+};
+
+module.exports.handler = { listReservation };
