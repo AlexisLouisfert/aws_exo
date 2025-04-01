@@ -41,3 +41,5 @@ exports.handler = async (event) => {
         };
     }
 };
+
+module.exports = { uploadImageToS3 };
